@@ -15,20 +15,27 @@ model_test = genanki.Model(
 	]
 )
 
-# Create a note
-note_test = genanki.Note(
-	model=model_test,
-	fields=['Expression', 'Reading', 'Meaning', 'Notes']
-)
-
 # Create a deck
 deck_test = genanki.Deck(
 	1716667060,
 	'Deck test'
 )
 
+# Create a note
+notes = [
+	['Expression', 'Reading', 'Meaning', 'Notes'],
+	['Expression', 'Reading', 'Meaning', 'Notes'],
+	['Expression', 'Reading', 'Meaning', 'Notes'],
+	['Expression', 'Reading', 'Meaning', 'Notes']
+]
+
 # Add note to deck
-deck_test.add_note(note_test)
+for note in notes:
+	deck_test.add_note(genanki.Note(
+		model=model_test,
+		fields=note
+	))
+
 
 # Export deck
 print('Creating deck...')
