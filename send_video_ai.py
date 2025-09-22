@@ -18,27 +18,16 @@ def get_context(lang):
 			- Meaning: a natural translation into {lang}.  
 			- Notes: a short explanation of grammar, context, or usage (in simple {lang}).  
 
-		3. Return the result **only as valid JSON** in the following structure:  
+		3. Return the result in the following structure:
+			['Expression', 'Reading', 'Meaning', 'Notes']
 
 		[
-			{{
-				"Expression": "日本語を勉強します。",
-				"Reading": "にほんごをべんきょうします。",
-				"Meaning": "I study Japanese.",
-				"Notes": "Verb 勉強する (study) in masu form."
-			}},
-			{{	
-				"Expression": "明日映画を見に行きます。",
-				"Reading": "あしたえいがをみにいきます。",
-				"Meaning": "Tomorrow I will go to see a movie.",
-				"Notes": "Construction ～に行く to express 'go do something'."
-			}}
+			["勉強する", "べんきょうする", "to study", "Verb 勉強する (study) in masu form."],
+			["本", "ほん", "book", "Can also mean origin or main"],
+			["大丈夫", "だいじょうぶ", "okay; fine", "Often used to reassure someone"]
 		]
 
-		Return only a JSON array of objects, without markdown fences or extra formatting. 
-		Do not wrap the output inside ```json. 
-		Do not include explanations. 
-		The output must be valid JSON, strictly parseable with json.loads in Python. 
+		DO NOT ADD THE JSON OR THE `
 
 		Here is the text: 
 	"""
@@ -51,7 +40,5 @@ def get_ai_anki(lang, text):
     	model="gemini-2.5-flash",
 		contents=context + text
 	)
-
-	response_json = json.loads(response.text)
-
-	return response_json
+	
+	return json.loads(response.text)

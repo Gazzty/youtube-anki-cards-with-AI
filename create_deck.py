@@ -19,7 +19,7 @@ def json_to_notes(notes_json):
 	notes = []
 	for note in notes_json:
 		current_note = []
-		for field in notes_json:
+		for field in note:
 			current_note.append(field)
 		notes.append(current_note)
 
