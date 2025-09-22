@@ -1,4 +1,4 @@
-import genanki, random
+import genanki, random, os, os.path
 
 # Create a deck model
 model_fields = ['Expression', 'Reading', 'Meaning', 'Notes']
@@ -22,6 +22,8 @@ def create_deck(name):
 		name
 	)
 
+	return deck
+
 # Add note to deck
 def add_notes_to_deck(deck, notes):
 	for note in notes:
@@ -33,5 +35,5 @@ def add_notes_to_deck(deck, notes):
 
 def export_deck(deck):
 	print('Creating deck...')
-	genanki.Package(deck).write_to_file('test_deck.apkg')
+	genanki.Package(deck).write_to_file('./decks/test_deck.apkg')
 	print('Deck created successfully!')
