@@ -1,4 +1,4 @@
-import genanki
+import genanki, random
 
 # Create a deck model
 model_fields = ['Expression', 'Reading', 'Meaning', 'Notes']
@@ -16,28 +16,22 @@ model_test = genanki.Model(
 )
 
 # Create a deck
-deck_test = genanki.Deck(
-	1716667060,
-	'Deck test'
-)
-
-# Create a note
-notes = [
-	['Expression', 'Reading', 'Meaning', 'Notes'],
-	['Expression', 'Reading', 'Meaning', 'Notes'],
-	['Expression', 'Reading', 'Meaning', 'Notes'],
-	['Expression', 'Reading', 'Meaning', 'Notes']
-]
+def create_deck(name):
+	deck = genanki.Deck(
+		random.randrange(1 << 30, 1 << 31),
+		name
+	)
 
 # Add note to deck
-for note in notes:
-	deck_test.add_note(genanki.Note(
-		model=model_test,
-		fields=note
-	))
+def add_notes_to_deck(deck, notes):
+	for note in notes:
+		deck.add_note(genanki.Note(
+			model=model_test,
+			fields=note
+		))
 
 
-# Export deck
-print('Creating deck...')
-genanki.Package(deck_test).write_to_file('test_deck.apkg')
-print('Deck created successfully!')
+def export_deck(deck):
+	print('Creating deck...')
+	genanki.Package(deck).write_to_file('test_deck.apkg')
+	print('Deck created successfully!')
