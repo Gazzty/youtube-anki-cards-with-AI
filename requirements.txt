@@ -1,1 +1,3 @@
 genanki
+google-genai
+dot-env

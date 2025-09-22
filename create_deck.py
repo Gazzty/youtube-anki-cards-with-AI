@@ -15,6 +15,16 @@ model_test = genanki.Model(
 	]
 )
 
+def json_to_notes(notes_json):
+	notes = []
+	for note in notes_json:
+		current_note = []
+		for field in notes_json:
+			current_note.append(field)
+		notes.append(current_note)
+
+	return notes
+
 # Create a deck
 def create_deck(name):
 	deck = genanki.Deck(
