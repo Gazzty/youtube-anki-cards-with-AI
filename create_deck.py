@@ -4,7 +4,7 @@ import genanki, random, os, os.path
 model_fields = ['Expression', 'Reading', 'Meaning', 'Notes']
 model_test = genanki.Model(
 	1182953384,	# This is a unique ID generated with python3 -c "import random; print(random.randrange(1 << 30, 1 << 31))"
-	'Test model',
+	'Gazzty Japanese model',
 	fields=[{'name': field} for field in model_fields],
 	templates=[
 		{
@@ -43,7 +43,7 @@ def add_notes_to_deck(deck, notes):
 		))
 
 
-def export_deck(deck):
+def export_deck(deck, deck_name):
 	print('Creating deck...')
-	genanki.Package(deck).write_to_file('./decks/test_deck.apkg')
+	genanki.Package(deck).write_to_file(f'./decks/{deck_name}.apkg')
 	print('Deck created successfully!')

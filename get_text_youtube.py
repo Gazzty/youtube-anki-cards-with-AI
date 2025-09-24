@@ -3,7 +3,7 @@ import re
 
 def get_transcript(url):
 	yt_api = YouTubeTranscriptApi()
-	fetch_transcript = yt_api.fetch("yYNWwH2GlB0", languages=["ja"])
+	fetch_transcript = yt_api.fetch(get_youtube_id(url), languages=["ja"])
 
 	sentenses = []
 	for snippet in fetch_transcript:
