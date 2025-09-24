@@ -9,6 +9,8 @@ test_text = """
 """
 
 def main():
+	video_url = input("Input video URL you wigh to get anki cards from: ")
+	
 	notes_raw = get_ai_anki('spanish', test_text)
 	notes = []
 	for note in notes_raw:
