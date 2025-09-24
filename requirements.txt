@@ -1,1 +1,4 @@
 genanki
+google-genai
+dotenv
+youtube_transcript_api
