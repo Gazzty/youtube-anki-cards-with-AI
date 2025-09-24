@@ -28,6 +28,7 @@ def get_context(lang):
 		]
 
 		DO NOT ADD THE JSON OR THE `
+		If you find a typo or think there is a mistake in the sentence, you can fix it, but do NOT clarify that you corrected it.
 
 		Here is the text: 
 	"""
