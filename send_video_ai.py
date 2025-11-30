@@ -29,6 +29,8 @@ def get_context(lang):
 
 		DO NOT ADD THE JSON OR THE `
 		If you find a typo or think there is a mistake in the sentence, you can fix it, but do NOT clarify that you corrected it.
+		Do the reading based on the Expression, check twice that the reading of the kanji is OK.
+		Check for expressions that are usually in Katakana, like キラキラ or ジメジメ and do not put them in kanji.
 
 		Here is the text: 
 	"""
